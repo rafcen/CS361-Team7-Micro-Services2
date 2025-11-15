@@ -10,6 +10,11 @@ def get_random_number():
         min_val = request.args.get('min', type=int)
         max_val = request.args.get('max', type=int)
         
+
+        # only min provided
+        if min_val is not None and max_val is None:
+            return jsonify({'error': 'if min value is provided, max value must also be provided'}), 400
+        
         # default to range of 1-20
         if (min_val and max_val) is None:
             min_val = 1
@@ -18,10 +23,6 @@ def get_random_number():
         # min value defaults to 1 if not provided
         elif min_val is None and max_val is not None:
             min_val = 1
-        
-        # only min provided
-        elif min_val is not None and max_val is None:
-            return jsonify({'error': 'if min value is provided, max value must also be provided'}), 400
         
         # min must be less than max
         if min_val > max_val:
