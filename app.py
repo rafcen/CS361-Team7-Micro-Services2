@@ -7,8 +7,8 @@ app = Flask(__name__)
 def get_random_number():
     try:
         # get min and max (only int's supported)
-        min_val = request.args.get('min', type=int)
-        max_val = request.args.get('max', type=int)
+        min_val = request.args.get('min_val', type=int)
+        max_val = request.args.get('max_val', type=int)
         
 
         # only min provided
@@ -28,12 +28,12 @@ def get_random_number():
         if min_val > max_val:
             return jsonify({'error': 'min value greater than max value'}), 400
         
-        random_number = random.randint(min_val, max_val)
+        result = random.randint(min_val, max_val)
         
         return jsonify({
-            'min': min_val,
-            'max': max_val,
-            'number': random_number
+            'min_val': min_val,
+            'max_val': max_val,
+            'result': result
         }), 200
         
     except Exception as e:
