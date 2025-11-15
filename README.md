@@ -42,8 +42,8 @@ Query Parameters:
 
 Parameter | Type | Description
 --------- | ---- | -----------
-min | int | minimum value for range (default 1 if not provided)
-max | int | maximum value for range (default 20 if not provided)
+min_value | int | minimum value for range (default 1 if not provided)
+max_value | int | maximum value for range (default 20 if not provided)
 
 Example Request:
 ```
@@ -52,8 +52,8 @@ import requests
 response = requests.get(
     "http://localhost:5001/random-number",
     params={
-        "min": 5,
-        "max": 10
+        "min_value": 5,
+        "max_value": 10
     }
 )
 
@@ -67,7 +67,7 @@ Successful JSON Response Format:
 
 ```
 {
-    'max': 10, 'min': 5, 'number': 7
+    'max_value': 10, 'min_value': 5, 'result': 7
 }
 ```
 
