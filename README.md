@@ -89,16 +89,16 @@ Error Response Format:
 
 Example (Processing the Response in Python):
 ```
-    if response.status_code == 200:
-        min_val = data.get("min_val")
-        max_val = data.get("max_val")
-        random_num = data.get("result")
+if response.status_code == 200:
+    min_val = data.get("min_val")
+    max_val = data.get("max_val")
+    random_num = data.get("result")
 
-        # print data on seperate lines formatted
-        print(f"\tmin:\t{min_val}\n\tmax:\t{max_val}\n\trandom:\t{random_num}")
-    elif response.status_code == 400:
-        print(f"\t400: {data.get('error')}")
-    else:
-        print("\tgeneral error")
+    # print data on seperate lines formatted
+    print(f"\tmin:\t{min_val}\n\tmax:\t{max_val}\n\trandom:\t{random_num}")
+elif response.status_code == 400:
+    print(f"\t400: {data.get('error')}")
+else:
+    print("\tgeneral error")
 ```
 ---------
