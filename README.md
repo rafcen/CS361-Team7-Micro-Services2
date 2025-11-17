@@ -102,3 +102,6 @@ else:
     print("\tgeneral error")
 ```
 ---------
+
+### UML Sequence Diagram 
+![Diagram](images/UML_sequence.png)
